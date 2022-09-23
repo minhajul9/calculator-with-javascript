@@ -21,7 +21,15 @@ function getFormattedNumber(num){
 var operator = document.getElementsByClassName('operator');
 for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener('click', function(){
-        alert('clicked '+ this.id);
+        if(operator[i].id=='clear'){
+            printHistory('');
+            printOutput('');
+        }
+        else if(operator[i].id=='backspace'){
+            var current = getOutput();
+            var newCurrent = current.slice(0, -1);
+            printOutput(newCurrent);
+        }
     });
 }
 
